@@ -22,7 +22,7 @@ For enhanced security, this architecture manages resources with Azure Active Dir
 
 A virtual machine serves as a management bastion host, providing a secure connection for administrators to access deployed resources. **Azure recommends configuring a VPN or Azure ExpressRoute connection for management and data import into the reference architecture resource group.**
 
-![alt text](https://github.com/njben/AzureBlueprintAnalytics/blob/master/Azure%20Analytics%20Visio.png?raw=true)
+![alt text](https://github.com/njben/AzureBlueprintAnalytics/blob/master/Analytics%20Visio%20Diagram.png?raw=true)
 
 ### Roles
 The analytics blueprint outlines a scenario with three general user types: the operational user, the SQL/Data Admin, and the Azure Admin. Azure Role-based Access Control (RBAC) enables the implementation of precise access management through built-in custom roles. Resources are available for configuring [Role-based Access Control](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) and outlining and implementing [pre-defined roles](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles).
@@ -65,7 +65,7 @@ Power BI Dashboard
 ## Deployment Architecture
 The following section details the development and implementation elements.
 
-![alt text](https://github.com/njben/AzureBlueprintAnalytics/blob/master/Components%20Analytics.png?raw=true)
+![alt text](https://github.com/njben/AzureBlueprintAnalytics/blob/master/Analytics%20Components%20Visio.png?raw=true)
 
 **Azure Functions**: [Azure functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview) are solutions for running small pieces of code in the cloud via most programming languages. Functions in this solution integrate with Azure Storage to automatically pull customer data into the cloud, facilitating integration with other Azure services. Functions are easily scalable and only incur a cost when they are actually running.
 
