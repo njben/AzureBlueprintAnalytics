@@ -22,7 +22,7 @@ The entire solution is built upon an Azure Storage account customers configure f
 
 For enhanced security, this architecture manages resources with Azure Active Directory and Azure Key Vault. System health is monitored through Operations Management Suite (OMS) and Azure Monitor. Customers configure both monitoring services to capture logs and display system health in a single, easily navigable dashboard.
 
-Azure SQL Database is managed through SQL Management Studio, which can be configured to run via a VPN secured connection. **Azure recommends configuring a VPN or Azure ExpressRoute connection for management and data import into the reference architecture resource group.**
+Azure SQL Database is managed through SQL Management Studio, which should be configured to run via a secure VPN or ExpressRoute connection. **Azure recommends configuring a VPN or Azure ExpressRoute connection for management and data import into the reference architecture resource group.**
 
 ![alt text](https://github.com/njben/AzureBlueprintAnalytics/blob/master/Analytics%20Visio%20Diagram%20Final.png?raw=true)
 
@@ -67,7 +67,7 @@ The following section details the development and implementation elements.
 The architecture protects data at rest through encryption, database auditing, and other measures.
 
 **Azure Storage**
-To meet encrypted data at rest requirements, all [Azure Storage](https://azure.microsoft.com/services/storage/) and Azure Analytics Services use [Storage Service Encryption](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+To meet encrypted data at rest requirements, all services deployed in this reference architecture leverage [Azure Storage](https://azure.microsoft.com/services/storage/), which stores data with [Storage Service Encryption](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
 
 **Azure Disk Encryption**
 [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) leverages the BitLocker feature of Windows to provide volume encryption for OS and data disks. The solution integrates with Azure Key Vault to help control and manage the disk-encryption keys.
