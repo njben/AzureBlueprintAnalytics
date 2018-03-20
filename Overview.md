@@ -12,29 +12,31 @@ This reference architecture, associated control implementation guides, and threa
 
 This solution provides an analytics platform upon which customers can build their own analytics tools. The reference architecture outlines a generic use case where customers input data either through bulk data imports by the SQL/Data Administrator or through operational data updates via an Operational User. Both work streams incorporate [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview) for importing data into the SQL Database. Azure Functions must be configured by the customer through the Azure Portal in order to handle the import tasks unique to each customer's own analytics requirements.
 
-Microsoft Azure offers a variety of reporting and analytics services for the customer, however this solution incorporates Azure Analysis Services in conjunction with Azure SQL Database to rapidly browse through data and deliver faster results through smarter modeling of customer data. For enhanced analytics and reporting, SQL Databases can be configured with columnstore indexes. Both Azure Analytics Services and SQL Databases can be scaled up or down, or shut off completely in response to customer usage. All SQL traffic is encrypted with SSL through the inclusion of self-signed certificates. As a best practice, Azure recommends the use of a trusted certificate authority for enhanced security.
+Microsoft Azure offers a variety of reporting and analytics services for the customer, however this solution incorporates Azure Analysis Services in conjunction with Azure SQL Database to rapidly browse through data and deliver faster results through smarter modeling of customer data. Azure Analytics Services is a form of machine learning intended to increase query speeds by discovering new relationships between datasets. Once the data has been trained through a number of statistical functions, up to 7 additional query pools (8 total including the customer server) can be synchronized with the same tabular models to spread query workload and reduce response times.
 
-Once data is uploaded to the Azure SQL Database, it is digested by both the Operational User and SQL/Data Admin with Power BI. Power BI displays data intuitively and pulls together information across multiple datasets to draw greater insight. Its high degree of adaptability and easy integration with Azure SQL Database ensures that customers can configure it to handle a wide array of scenarios as required by their business needs.
+For enhanced analytics and reporting, SQL Databases can be configured with columnstore indexes. Both Azure Analytics Services and SQL Databases can be scaled up or down, or shut off completely in response to customer usage. All SQL traffic is encrypted with SSL through the inclusion of self-signed certificates. As a best practice, Azure recommends the use of a trusted certificate authority for enhanced security.
+
+Once data is uploaded to the Azure SQL Database and trained by Azure Analysis Services, it is digested by both the Operational User and SQL/Data Admin with Power BI. Power BI displays data intuitively and pulls together information across multiple datasets to draw greater insight. Its high degree of adaptability and easy integration with Azure SQL Database ensures that customers can configure it to handle a wide array of scenarios as required by their business needs.
 
 The entire solution is built upon an Azure Storage account customers configure from the Azure Portal. Azure Storage encrypts all data with Storage Service Encryption to maintain confidentiality of data at rest. Customers can further configure their storage with geographic redundancy as protection against loss of data in an adverse event.
 
 For enhanced security, this architecture manages resources with Azure Active Directory and Azure Key Vault. System health is monitored through Operations Management Suite (OMS) and Azure Monitor. Customers configure both monitoring services to capture logs and display system health in a single, easily navigable dashboard.
 
-A virtual machine serves as a management bastion host, providing a secure connection for administrators to access deployed resources. **Azure recommends configuring a VPN or Azure ExpressRoute connection for management and data import into the reference architecture resource group.**
+Azure SQL Database is managed through SQL Management Studio, which can be configured to run via a VPN secured connection. **Azure recommends configuring a VPN or Azure ExpressRoute connection for management and data import into the reference architecture resource group.**
 
-![alt text](https://github.com/njben/AzureBlueprintAnalytics/blob/master/Analytics%20Visio%20Diagram.png?raw=true)
+![alt text](https://github.com/njben/AzureBlueprintAnalytics/blob/master/Analytics%20Visio%20Diagram%20Final.png?raw=true)
 
 ### Roles
-The analytics blueprint outlines a scenario with three general user types: the operational user, the SQL/Data Admin, and the Azure Admin. Azure Role-based Access Control (RBAC) enables the implementation of precise access management through built-in custom roles. Resources are available for configuring [Role-based Access Control](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) and outlining and implementing [pre-defined roles](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles).
+The analytics blueprint outlines a scenario with three general user types: the Operational User, the SQL/Data Admin, and the Systems Engineer. Azure Role-based Access Control (RBAC) enables the implementation of precise access management through built-in custom roles. Resources are available for configuring [Role-based Access Control](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) and outlining and implementing [pre-defined roles](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles).
 
 #### Systems Engineer
 The Systems Engineer owns the customer subscription for Azure and configures the deployment of the solution through the Azure Portal.
 
 #### SQL/Data Administrator
-The SQL/Data Administrator establishes the bulk data import function for uploading to the Azure SQL database. The SQL/Data Administrator is not responsible for any operational data updates in the database but will be able to view the data through Power BI.
+The SQL/Data Administrator establishes the bulk data import function and the operational data update function for uploading to the Azure SQL database. The SQL/Data Administrator is not responsible for any operational data updates in the database but will be able to view the data through Power BI.
 
 #### Operational User
-The operational user updates the data regularly and owns the day-to-day data generation. The operational user will also interpret results through Power BI.
+The Operational User updates the data regularly and owns the day-to-day data generation. The Operational User will also interpret results through Power BI.
 
 ### Azure Services
 
