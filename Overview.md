@@ -22,7 +22,7 @@ The entire solution is built upon an Azure Storage account customers configure f
 
 For enhanced security, this architecture manages resources with Azure Active Directory and Azure Key Vault. System health is monitored through Operations Management Suite (OMS) and Azure Monitor. Customers configure both monitoring services to capture logs and display system health in a single, easily navigable dashboard.
 
-Azure SQL Database is commonly managed through SQL Server Management Studio (SMSS), which runs from a local machine configured to access the Azure SQL Database via a secure VPN or ExpressRoute connection. **Azure recommends configuring a VPN or Azure ExpressRoute connection for management and data import into the reference architecture resource group.**
+Azure SQL Database is commonly managed through SQL Server Management Studio (SSMS), which runs from a local machine configured to access the Azure SQL Database via a secure VPN or ExpressRoute connection. **Azure recommends configuring a VPN or Azure ExpressRoute connection for management and data import into the reference architecture resource group.**
 
 ![alt text](https://github.com/njben/AzureBlueprintAnalytics/blob/master/Analytics%20Scenario%20Diagram%20Final.png?raw=true)
 
