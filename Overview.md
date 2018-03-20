@@ -41,28 +41,16 @@ The Operational User updates the data regularly and owns the day-to-day data gen
 ### Azure Services
 
 This solution uses the following Azure services. Details of the deployment architecture are in the [Deployment Architecture](#deployment-architecture) section.
-
-Azure Functions
-
-Azure SQL Database
-
-Azure Analysis Service
-
-Azure Active Directory
-
-Azure Key Vault
-
-OMS
-
-Azure Monitor
-
-Azure Storage
-
-ExpressRoute
-
-VPN Gateway
-
-Power BI Dashboard
+- Azure Functions
+- Azure SQL Database
+- Azure Analysis Service
+- Azure Active Directory
+- Azure Key Vault
+- OMS
+- Azure Monitor
+- Azure Storage
+- ExpressRoute/VPN Gateway
+- Power BI Dashboard
 
 ## Deployment Architecture
 The following section details the development and implementation elements.
