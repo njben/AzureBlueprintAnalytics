@@ -63,6 +63,13 @@ The following section details the development and implementation elements.
 
 **Power BI**: [Power BI](https://docs.microsoft.com/en-us/power-bi/service-azure-and-power-bi) provides analytics and reporting functionality for customers trying to pull greater insight out of their data processing efforts.
 
+### Networking
+**Network Security Groups**: [NSGs](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) are set up to manage traffic directed at deployed resources and services. Network Security Groups are set to a deny-by-default scheme and only permit traffic that is contained in the pre-configured Access Control List (ACL).
+
+Each of the NSGs have specific ports and protocols open so that the solution can work securely and correctly. In addition, the following configurations are enabled for each NSG:
+  -	[Diagnostic logs and events](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-nsg-manage-log) are enabled and stored in a storage account
+  -	OMS [Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics) is connected to the NSG's diagnostic logs.
+
 ### Data at Rest
 The architecture protects data at rest through encryption, database auditing, and other measures.
 
@@ -108,6 +115,7 @@ Additionally, the following OMS solutions are included as a part of this archite
 -	[Azure Role-based Access Control (RBAC)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) enables focused access management for Azure. Subscription access is limited to the subscription administrator.
 
 To learn more about using the security features of Azure SQL Database, see the [Contoso Clinic Demo Application](https://github.com/Microsoft/azure-sql-security-sample) sample.
+
 ### Security
 **Secrets Management**: The solution uses [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) for the management of keys and secrets. Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services.
 
@@ -133,7 +141,7 @@ This PaaS solution does not incorporate any Azure IaaS VMs. A customer could cre
 -	[Antimalware Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): The Antimalware solution reports on malware, threats, and protection status.
 -	[Update Management](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management): The Update Management solution allows customer management of operating system security updates, including a status of available updates and the process of installing required updates.
 -	[Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): The Agent Health solution reports how many agents are deployed and their geographic distribution, as well as how many agents which are unresponsive and the number of agents which are submitting operational data.
--	[Change Tracking](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): The Change Tracking solution allows customers to easily identify changes in the environment.
+-	[Change Tracking](https://docs.microsoft.com/en-us/azure/automation/automation-change-tracking): The Change Tracking solution allows customers to easily identify changes in the environment.
 
 ##### Security
 - **Malware Protection**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) for Virtual Machines provides real-time protection capability that helps identify and remove viruses, spyware, and other malicious software, with configurable alerts when known malicious or unwanted software attempts to install or run on protected virtual machines.
