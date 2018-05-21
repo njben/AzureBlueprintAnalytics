@@ -158,6 +158,7 @@ Azure Commercial offers a wide variety of analytics services for pulling insight
 
 The data flow diagram (DFD) for this reference architecture is available for [download](https://aka.ms/blueprintanalyticsthreatmodel) or can be found below:
 
+![alt text](https://github.com/njben/AzureBlueprintAnalytics/blob/master/Azure%20Security%20and%20Compliance%20Blueprint%20-%20FedRAMP%20Analytics%20Threat%20Model.png?raw=true)
 ## Compliance Documentation
 The [Azure Security and Compliance Blueprint – FedRAMP High Customer Responsibility Matrix](https://aka.ms/blueprinthighcrm) lists all security controls required by the FedRAMP High baseline. Similarly, the [Azure Security and Compliance Blueprint – FedRAMP Moderate Customer Responsibility Matrix](https://aka.ms/blueprintanalyticscimmod) lists all security controls required by the FedRAMP Moderate baseline. Both documents detail whether the implementation of each control is the responsibility of Microsoft, the customer, or shared between the two.
 
